@@ -1,10 +1,18 @@
 <div class="container">
 <h1>
   <nav>
-    <a routerLink="/home">{{titre}}</a>
+    <a routerLink="/">{{titre}}</a>
   </nav>
 </h1>
-<mat-slide-toggle color="primary" (click)="login()">Login</mat-slide-toggle>
+<mat-toolbar>
+  <span>My Application</span>
+  <span class="example-spacer"></span>
+  <nav class="login">
+<button mat-button color="primary" (click)="login()" *ngIf="!authService.isloggedIn">Login</button>
+<button mat-button color="primary" (click)="logout()" *ngIf="authService.isloggedIn">Logout</button>
+</nav>
+</mat-toolbar>
+
 <button mat-flat-button color="primary" (click)="peuplerBD()">PeuplerBD avec données de test</button>
 </div>
 <router-outlet></router-outlet>

@@ -18,11 +18,12 @@ export class AssignmentDetailComponent implements OnInit {
               private authService:AuthService) {}
 
   ngOnInit(): void {
-    // on doit récupérer l'id dans l'URL, et on doit utiliser
-    // le service de gestion des assignments pour récupérer l'assignment
-    // qui a cet id
-    // Le "+ ci-dessous force la conversion string vers number (les urls sont des strings)"
+    if(this.authService.isloggedIn)
+    {
     this.getAssignment();
+    }
+    else
+    this.router.navigate(["/forbidden"]);
   }
 
   // récupère l'id puis l'assignment correspondant
@@ -65,6 +66,10 @@ export class AssignmentDetailComponent implements OnInit {
   }
 
   isLoggedIn() {
-    return this.authService.loggedIn
+    return this.authService.isloggedIn;
+  }
+
+  isAdmin(){
+    return this.authService.isAdmin();
   }
 }

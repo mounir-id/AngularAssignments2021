@@ -14,6 +14,8 @@ import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
 import { MatCheckboxModule} from '@angular/material/checkbox';
 import { MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {MatToolbarModule} from '@angular/material/toolbar';
+
 
 import { AssignmentsComponent } from './assignments/assignments.component';
 import { RenduDirective } from './shared/rendu.directive';
@@ -24,6 +26,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { EditAssigmentComponent } from './assignments/edit-assigment/edit-assigment.component';
 import { AuthGuard } from './shared/auth.guard';
 import { HttpClientModule } from '@angular/common/http';
+import { LoginComponent } from './login/login.component';
+import { ForbiddenComponent } from './forbidden/forbidden.component';
 
 const routes:Routes = [
   {
@@ -42,7 +46,16 @@ const routes:Routes = [
     path:"assignments/:id/edit",
     component:EditAssigmentComponent,
     canActivate: [AuthGuard]
+  },
+  {
+    path:"login",
+    component:LoginComponent
+  },
+  {
+    path:  'forbidden',
+     component: ForbiddenComponent
   }
+
 ]
 
 @NgModule({
@@ -52,7 +65,9 @@ const routes:Routes = [
     RenduDirective,
     AssignmentDetailComponent,
     AddAssignmentComponent,
-    EditAssigmentComponent
+    EditAssigmentComponent,
+    LoginComponent,
+    ForbiddenComponent
   ],
   imports: [
     BrowserModule,
@@ -63,7 +78,8 @@ const routes:Routes = [
     MatSlideToggleModule,
     MatNativeDateModule, MatListModule, MatCardModule, MatCheckboxModule,
     RouterModule.forRoot(routes),
-    HttpClientModule
+    HttpClientModule,
+    MatToolbarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

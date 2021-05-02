@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AssignmentsService } from './shared/assignments.service';
 import { AuthService } from './shared/auth.service';
@@ -8,29 +8,38 @@ import { AuthService } from './shared/auth.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  titre = "Application de gestion d'Assignments POUR HEROKU CETTE FOIS-CI !";
+export class AppComponent implements OnInit {
+  titre = "Application de gestion d'Assignments";
 
-  constructor(private authService:AuthService,
-              private router:Router,
-              private assignmentsService:AssignmentsService) {}
+  constructor(public authService: AuthService,
+    private router: Router,
+    private assignmentsService: AssignmentsService) { }
+
+  ngOnInit() {
+    let isloggedin: string;
+    let loggedUser: string;
+    isloggedin = localStorage.getItem('isloggedIn');
+    loggedUser = localStorage.getItem('loggedUser');
+    if (isloggedin != "true" || !loggedUser)
+      this.router.navigate(['/login']);
+    else
+      this.authService.setLoggedUserFromLocalStorage(loggedUser);
+  }
 
   login() {
-    if(this.authService.loggedIn) {
-      this.authService.logOut();
-      this.router.navigate(["/home"]);
-    } else {
-      this.authService.logIn();
-    }
+    this.router.navigate(["/login"]);
+  }
+  logout() {
+    this.authService.logOut();
   }
 
   peuplerBD() {
     //this.assignmentsService.peuplerBaseAvecDonneesDeTest();
     this.assignmentsService.peuplerBDJoin()
-       .subscribe((reponse) => {
-         console.log("### BD PEUPLEE ! ###");
-         // on navigue vers la page d'accueil pour afficher la liste
-         this.router.navigate(["/home"]);
-       })
+      .subscribe((reponse) => {
+        console.log("### BD PEUPLEE ! ###");
+        // on navigue vers la page d'accueil pour afficher la liste
+        this.router.navigate(["/home"]);
+      })
   }
 }

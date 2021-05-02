@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AssignmentsService } from '../shared/assignments.service';
+import { AuthService } from '../shared/auth.service';
 import { Assignment } from './assignment.model';
 
 @Component({
@@ -22,19 +24,16 @@ export class AssignmentsComponent implements OnInit {
   hasNextPage;
 
   // ici injection des services utilisés, en pas oublier "private"
-  constructor(private assignmentsService: AssignmentsService) {}
+  constructor(private assignmentsService: AssignmentsService,
+              public authService: AuthService,
+              private router: Router) {}
 
   ngOnInit(): void {
     // appelée avant affichage du composant
+   
     console.log(
       'Composant assignments, dans le ngOnInit, on demande aux service le tableau des assignments'
     );
-    /*
-    this.assignmentsService.getAssignments()
-    .subscribe((assignments) => {
-      console.log('Dans le subscribe...');
-      this.assignments = assignments;
-    }); */
     this.getAssignmentsPourAffichage();
   }
 

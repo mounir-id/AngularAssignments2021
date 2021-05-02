@@ -7,9 +7,9 @@
     </mat-checkbox>
 
 
-        <button mat-stroked-button [disabled]="!isLoggedIn()" color="primary" (click)="onClickEdit()">EDIT</button>
+        <button mat-stroked-button [disabled]="!isAdmin()" color="primary" (click)="onClickEdit()">EDIT</button>
 
 
-    <button mat-flat-button (click)="onDelete()" color="warn">DELETE</button>
+    <button mat-flat-button [disabled]="!isAdmin()" (click)="onDelete()" color="warn">DELETE</button>
   </div>
 </mat-card>
