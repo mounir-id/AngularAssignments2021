@@ -33,13 +33,24 @@ export class AppComponent implements OnInit {
     this.authService.logOut();
   }
 
-  peuplerBD() {
-    //this.assignmentsService.peuplerBaseAvecDonneesDeTest();
-    this.assignmentsService.peuplerBDJoin()
-      .subscribe((reponse) => {
-        console.log("### BD PEUPLEE ! ###");
-        // on navigue vers la page d'accueil pour afficher la liste
-        this.router.navigate(["/home"]);
-      })
+  home(){
+    this.router.navigate(["/acceuil"])
   }
+
+  liste(){
+    this.router.navigate(["/"])
+  }
+
+
+  // peuplerBD() {
+  //   //this.assignmentsService.peuplerBaseAvecDonneesDeTest();
+  //   this.assignmentsService.peuplerBDJoin()
+  //     .subscribe((reponse) => {
+  //       console.log("### BD PEUPLEE ! ###");
+  //       // on navigue vers la page d'accueil pour afficher la liste
+  //       this.router.navigate(["/home"]);
+  //     })
+  // }
+
+  
 }

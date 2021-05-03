@@ -1,0 +1,16 @@
+.example-card {
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40px;
+  }
+  
+  .example-header-image {
+    background-image: url('https://pbs.twimg.com/profile_images/378800000642874559/98a7996e0929082e2afe0b90afe429e7_400x400.png');
+    background-size: cover;
+  }
+
+  .example-header-image2 {
+    background-image: url('https://upload.wikimedia.org/wikipedia/fr/9/91/Logo_universit%C3%A9_nice_sophia_antipolis.png');
+    background-size: cover;
+  }

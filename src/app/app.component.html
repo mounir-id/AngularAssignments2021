@@ -1,18 +1,22 @@
 <div class="container">
-<h1>
-  <nav>
-    <a routerLink="/">{{titre}}</a>
-  </nav>
-</h1>
-<mat-toolbar>
-  <span>My Application</span>
+<mat-toolbar color="primary">
+  <button mat-icon-button [matMenuTriggerFor]="menu" class="example-icon" aria-label="Example icon-button with menu icon">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="home()">
+      <span >Acceuil</span>
+    </button>
+    <button mat-menu-item (click)="liste()">
+      <span >Liste des Assignments</span>
+    </button>
+  </mat-menu>
+  <span>Gestion des Assignments</span>
   <span class="example-spacer"></span>
   <nav class="login">
-<button mat-button color="primary" (click)="login()" *ngIf="!authService.isloggedIn">Login</button>
-<button mat-button color="primary" (click)="logout()" *ngIf="authService.isloggedIn">Logout</button>
+<button mat-button color=white (click)="login()" *ngIf="!authService.isloggedIn">Login</button>
+<button mat-button color=white (click)="logout()" *ngIf="authService.isloggedIn">Logout</button>
 </nav>
 </mat-toolbar>
-
-<button mat-flat-button color="primary" (click)="peuplerBD()">PeuplerBD avec données de test</button>
 </div>
 <router-outlet></router-outlet>

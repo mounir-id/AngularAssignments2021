@@ -5,3 +5,17 @@
     margin:5px;
   }
   
+  .formulaire{
+    margin-top: 60px;
+  }
+
+  body{
+    background-image: url("https://hrmcdn-13a1c.kxcdn.com/images/hr-sg/content-images/priya-june-2020-patrick-tay-work-from-home-lead-istock.jpg");
+  }
+
+  .example-card {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40px;
+  }

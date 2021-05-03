@@ -15,6 +15,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatCheckboxModule} from '@angular/material/checkbox';
 import { MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatMenuModule} from '@angular/material/menu';
 
 
 import { AssignmentsComponent } from './assignments/assignments.component';
@@ -28,6 +29,7 @@ import { AuthGuard } from './shared/auth.guard';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { ForbiddenComponent } from './forbidden/forbidden.component';
+import { AcceuilComponent } from './acceuil/acceuil.component';
 
 const routes:Routes = [
   {
@@ -54,6 +56,10 @@ const routes:Routes = [
   {
     path:  'forbidden',
      component: ForbiddenComponent
+  },
+  {
+    path: "acceuil",
+    component: AcceuilComponent
   }
 
 ]
@@ -67,7 +73,8 @@ const routes:Routes = [
     AddAssignmentComponent,
     EditAssigmentComponent,
     LoginComponent,
-    ForbiddenComponent
+    ForbiddenComponent,
+    AcceuilComponent
   ],
   imports: [
     BrowserModule,
@@ -79,7 +86,8 @@ const routes:Routes = [
     MatNativeDateModule, MatListModule, MatCardModule, MatCheckboxModule,
     RouterModule.forRoot(routes),
     HttpClientModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -3,11 +3,6 @@
   display: flex;
   flex-direction: column;
 }
-
-.login{
-    margin-right:30px;
-    align-self: flex-end;
-}
 .example-spacer {
   flex: 1 1 auto;
 }

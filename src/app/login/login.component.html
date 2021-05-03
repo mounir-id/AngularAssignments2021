@@ -1,22 +1,32 @@
-<form ngForm #loginForm class="form">
-    <div style="text-align:center;">
-        <div>
-            <mat-form-field>
-                <mat-label>Username</mat-label>
-                <input required matInput placeholder="username" [(ngModel)]="user.username" name="username">
-            </mat-form-field>
-        </div>
-        <div>
-            <mat-form-field appearance="fill">
-                <mat-label>Password</mat-label>
-                <input required matInput placeholder="password" [(ngModel)]="user.password" name="password">
-            </mat-form-field>
-        </div>
-    
-    <nav>
-        <button mat-stroked-button color="primary" (click)="onLoggedin()">
-            Connexion
-        </button>
-    </nav>
-</div>
-</form>
+<body>
+    <form ngForm #loginForm class="form">
+
+        <mat-card class="example-card">
+            <mat-card-header>
+                <mat-card-title>Login</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <div class="formulaire" style="text-align:center;">
+                    <div>
+                        <mat-form-field>
+                            <mat-label>Username</mat-label>
+                            <input required matInput placeholder="username" [(ngModel)]="user.username" name="username">
+                        </mat-form-field>
+                    </div>
+                    <div>
+                        <mat-form-field>
+                            <mat-label>Password</mat-label>
+                            <input required matInput placeholder="password" [(ngModel)]="user.password" name="password">
+                        </mat-form-field>
+                    </div>
+
+                    <nav>
+                        <button mat-stroked-button color="primary" (click)="onLoggedin()">
+                            Connexion
+                        </button>
+                    </nav>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </form>
+</body>

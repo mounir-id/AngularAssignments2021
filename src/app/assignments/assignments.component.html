@@ -6,12 +6,11 @@
       </button>
     </a>
   </nav>
-  <h2>{{titre}}</h2>
   <div class="pagination">
-    <button (click)="premierePage()" class="boutonsPagination">Première</button>
-    <button (click)="pageSuivante()" [disabled]="!hasNextPage" class="boutonsPagination">Page Suivante</button>
-    <button (click)="pagePrecedente()" [disabled]="!hasPrevPage" class="boutonsPagination">Page Précédente</button>
-    <button (click)="dernierePage()">Dernière</button>
+    <button mat-raised-button color="warn" (click)="premierePage()" class="boutonsPagination">Première</button>
+    <button mat-raised-button color="primary" (click)="pageSuivante()" [disabled]="!hasNextPage" class="boutonsPagination">Page Suivante</button>
+    <button mat-raised-button color="primary" (click)="pagePrecedente()" [disabled]="!hasPrevPage" class="boutonsPagination">Page Précédente</button>
+    <button mat-raised-button color="warn" (click)="dernierePage()">Dernière</button>
   </div>
   <br>
   <mat-divider></mat-divider>
